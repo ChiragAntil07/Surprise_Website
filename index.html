@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f2eb" />
+    <title>A little surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" type="module"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="A little surprise home">
+          <span class="wordmark-mark" aria-hidden="true">✳</span>
+          little moment
+        </a>
+        <span class="topbar-note">made just for you</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span aria-hidden="true">✦</span> A tiny thing, with lots of love</p>
+        <h1 id="page-title">Someone has a<br /><em>surprise</em> for you.</h1>
+        <p class="intro-copy">
+          Take a little breath, then open it whenever you’re ready.
+        </p>
+      </section>
+
+      <section class="surprise-card" aria-label="Surprise">
+        <div class="card-topline">
+          <span class="card-label">YOUR LITTLE SURPRISE</span>
+          <span class="card-sparkle" aria-hidden="true">✳</span>
+        </div>
+
+        <div id="lockedView" class="surprise-view locked-view">
+          <div class="lock-illustration" aria-hidden="true">
+            <div class="lock-glow"></div>
+            <div class="lock-box">
+              <span class="lock-bow"></span>
+              <span class="lock-ribbon"></span>
+              <span class="lock-lid"></span>
+              <span class="lock-star star-one">✦</span>
+              <span class="lock-star star-two">✧</span>
+            </div>
+          </div>
+          <p class="view-title">A little surprise, just for you</p>
+          <p class="view-copy">It’s tucked away in here. Tap when you’re ready.</p>
+        </div>
+
+        <div id="revealedView" class="surprise-view revealed-view" hidden>
+          <img id="surpriseImage" alt="Your surprise" hidden />
+          <div id="photoPlaceholder" class="photo-placeholder">
+            <span class="placeholder-sparkle" aria-hidden="true">✧</span>
+            <p>Your surprise will appear here</p>
+            <span class="placeholder-heart" aria-hidden="true">♡</span>
+          </div>
+          <div class="recording-badge" id="recordingBadge" hidden>
+            <span class="recording-dot"></span>
+            <span id="recordingLabel">Recording your reaction</span>
+            <strong id="countdown">10</strong>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button id="openButton" class="button button-primary" type="button" disabled>
+            <span>Open my surprise</span><span aria-hidden="true">↗</span>
+          </button>
+          <button id="lockButton" class="button button-secondary" type="button" hidden>
+            Lock surprise
+          </button>
+          <p id="statusMessage" class="status-message" role="status" aria-live="polite">
+            Please read and accept the recording notice below to continue.
+          </p>
+        </div>
+      </section>
+
+      <section class="consent-panel" aria-labelledby="consent-title">
+        <div class="consent-icon" aria-hidden="true">◉</div>
+        <div class="consent-content">
+          <h2 id="consent-title">A quick heads-up</h2>
+          <p>
+            Each time you open the surprise, your camera and microphone will record a
+            10-second video. If you agree, the clip is uploaded to private cloud storage
+            so the site admin can view it from the password-protected admin page. It is
+            not publicly viewable. Your browser will ask for camera and microphone access.
+          </p>
+          <label class="consent-check">
+            <input id="consentCheckbox" type="checkbox" />
+            <span>I understand and agree to recording my reaction.</span>
+          </label>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Made with a little extra love</span>
+        <span aria-hidden="true">♡</span>
+      </footer>
+    </main>
+
+    <div id="consentDialog" class="dialog-backdrop" role="presentation">
+      <section
+        class="consent-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-description"
+      >
+        <span class="dialog-icon" aria-hidden="true">♡</span>
+        <p class="eyebrow">BEFORE THE SURPRISE</p>
+        <h2 id="dialog-title">Your reaction will be recorded</h2>
+        <p id="dialog-description">
+          Opening the surprise records 10 seconds using your camera and microphone.
+          If you agree, the clip is uploaded to private cloud storage for the site admin
+          to view from the password-protected admin page. It is not publicly viewable.
+          You can say no and leave the surprise locked.
+        </p>
+        <label class="consent-check dialog-check">
+          <input id="dialogConsentCheckbox" type="checkbox" />
+          <span>I understand and agree.</span>
+        </label>
+        <button id="continueButton" class="button button-primary" type="button" disabled>
+          Continue to the surprise <span aria-hidden="true">↗</span>
+        </button>
+        <button id="declineButton" class="decline-button" type="button">Not now</button>
+      </section>
+    </div>
+  </body>
+</html>

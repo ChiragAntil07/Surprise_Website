@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f2eb" />
+    <title>Admin · A little surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../admin.js" type="module"></script>
+  </head>
+  <body>
+    <main class="admin-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Back to the surprise page">
+          <span class="wordmark-mark" aria-hidden="true">✳</span>
+          little moment
+        </a>
+        <button id="signOutButton" class="button button-secondary admin-sign-out" type="button" hidden>
+          Sign out
+        </button>
+      </header>
+
+      <section class="admin-intro">
+        <p class="eyebrow">PRIVATE CORNER</p>
+        <h1>Surprise <em>admin</em></h1>
+        <p>Manage the shared surprise photo and private reaction clips.</p>
+      </section>
+
+      <section id="adminLogin" class="admin-panel admin-login" aria-labelledby="login-title" hidden>
+        <p class="eyebrow">PRIVATE CORNER</p>
+        <h2 id="login-title">Admin sign in</h2>
+        <form id="loginForm">
+          <label for="adminEmail">Email</label>
+          <input id="adminEmail" name="email" type="email" autocomplete="username" required />
+          <label for="adminPassword">Password</label>
+          <input id="adminPassword" name="password" type="password" autocomplete="current-password" required />
+          <button id="loginButton" class="button button-primary" type="submit">Sign in</button>
+        </form>
+        <p id="loginStatus" class="admin-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <div id="adminContent" hidden>
+        <section class="admin-panel" aria-labelledby="photo-title">
+          <div class="admin-panel-heading">
+            <div>
+              <p class="eyebrow">THE REVEAL</p>
+              <h2 id="photo-title">Surprise photo</h2>
+            </div>
+            <label class="button button-upload" for="photoInput">
+              <span id="photoButtonLabel">Choose a photo</span>
+              <span aria-hidden="true">＋</span>
+            </label>
+            <input id="photoInput" class="visually-hidden" type="file" accept="image/jpeg,image/png,image/webp" />
+          </div>
+          <div id="photoPreview" class="admin-photo-preview">
+            <p id="photoEmpty">No surprise photo added yet.</p>
+            <img id="surpriseImage" alt="Current surprise" hidden />
+          </div>
+          <button id="removePhotoButton" class="text-button" type="button" hidden>
+            Remove surprise photo
+          </button>
+        </section>
+
+        <section class="admin-panel" aria-labelledby="clips-title">
+          <div class="admin-panel-heading clips-heading">
+            <div>
+              <p class="eyebrow">PRIVATE CLOUD STORAGE</p>
+              <h2 id="clips-title">Reaction clips</h2>
+            </div>
+            <span id="recordingCount" class="recording-count">0 clips</span>
+          </div>
+          <p class="admin-note">
+            Clips are private and can be viewed only by an authorized admin. Signed viewing links expire after one hour.
+          </p>
+          <p id="adminStatus" class="admin-status" role="status" aria-live="polite"></p>
+          <p id="emptyRecordings" class="empty-recordings">No reaction clips uploaded yet.</p>
+          <ul id="recordingsList" class="admin-recordings-list" aria-live="polite"></ul>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <a href="/">Back to the surprise</a>
+        <span aria-hidden="true">♡</span>
+      </footer>
+    </main>
+  </body>
+</html>
